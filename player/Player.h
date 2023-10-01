@@ -5,7 +5,7 @@
 #include <string>
 using namespace std;
 
-class Player {
+class Player{
   private:
     string name;
     int age;
@@ -17,7 +17,7 @@ class Player {
     void SetName(string userName);
     int GetAge();
     string GetName();
-    void PrintPlayerInfo();
+    void print();
     
 };
 

@@ -52,7 +52,7 @@ void modifyPlayer(Player (&players)[20], string n){
 }
 void printPlayers(Player players[],int t){
   for(int i=0;i<t;i++){
-    players[i].PrintPlayerInfo();
+    players[i].print();
   }
 }
 int main() {

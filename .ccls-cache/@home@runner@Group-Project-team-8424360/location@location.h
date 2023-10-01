@@ -1,25 +1,23 @@
-#ifndef PLAYERH
-#define PLAYERH
+#ifndef LOCATIONH
+#define LOCATIONH
 
 #include <iostream>
-#include <string>
-using namespace std;
 
-class Player {
-  private:
-    string name;
-    int age;
+class Location {
+  protected:
+    bool visited;
+    char symbol;
   
   public:
-    Player();
-    Player(string n, int a);
-    void SetAge(int userAge);
-    void SetName(string userName);
-    int GetAge();
-    string GetName();
+    Location(char s=' ');
+    void visit(Player &p);
+    void SetSymbol(char userSymbol);
+    int draw();
+    string GetSymbol();
     void PrintPlayerInfo();
     
 };
+
 
 
 
