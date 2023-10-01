@@ -6,15 +6,21 @@ Cryo::Cryo(char s): Location(s) //: Location(s) passes the parameter s to the ba
   taken = false; //initialize class specific attributes here
 }
 
+void Cryo::SetTaken(bool t){
+  taken=t;
+}
+bool Cryo::GetTaken(){
+  return taken;
+}
 void Cryo::draw(){
   if (visited == true && taken == false){
-    cout << symbol;
+    cout << symbol << endl;
   }
   else if (taken == true){
-    cout << " ";
+    cout << " " << endl;
   }
   else{
-    cout << ".";
+    cout << "." << endl;
   }
 }
 

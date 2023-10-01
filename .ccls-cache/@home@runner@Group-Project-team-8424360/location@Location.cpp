@@ -2,7 +2,6 @@
 #include "Player.h"
 
 Location::Location(char s){
-  s=' ';
   visited=false;
   symbol=s;
 }

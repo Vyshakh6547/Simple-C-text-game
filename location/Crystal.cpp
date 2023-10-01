@@ -6,15 +6,23 @@ Crystal::Crystal(char s): Location(s) //: Location(s) passes the parameter s to 
   taken = false; //initialize class specific attributes here
 }
 
+void Crystal::SetTaken(bool t){
+  taken=t;
+}
+
+bool Crystal::GetTaken(){
+  return taken;
+}
+
 void Crystal::draw(){
   if (visited == true && taken == false){
-    cout << symbol;
+    cout << symbol << endl;
   }
   else if (taken == true){
-    cout << " ";
+    cout << " " << endl;
   }
   else{
-    cout << ".";
+    cout << "." << endl;
   }
 }
 
