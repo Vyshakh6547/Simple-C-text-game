@@ -16,13 +16,13 @@ bool Crystal::GetTaken(){
 
 void Crystal::draw(){
   if (visited == true && taken == false){
-    cout << symbol << endl;
+    cout << symbol;
   }
   else if (taken == true){
-    cout << " " << endl;
+    cout << " ";
   }
   else{
-    cout << "." << endl;
+    cout << ".";
   }
 }
 

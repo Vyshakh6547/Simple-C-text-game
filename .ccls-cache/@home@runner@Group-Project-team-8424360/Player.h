@@ -17,7 +17,7 @@ class Player {
     void SetName(string userName);
     int GetAge();
     string GetName();
-    void PrintPlayerInfo();
+    void print();
     
 };
 

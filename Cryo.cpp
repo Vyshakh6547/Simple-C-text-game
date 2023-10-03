@@ -14,13 +14,13 @@ bool Cryo::GetTaken(){
 }
 void Cryo::draw(){
   if (visited == true && taken == false){
-    cout << symbol << endl;
+    cout << symbol;
   }
   else if (taken == true){
-    cout << " " << endl;
+    cout << " ";
   }
   else{
-    cout << "." << endl;
+    cout << ".";
   }
 }
 

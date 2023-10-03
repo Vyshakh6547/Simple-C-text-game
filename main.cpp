@@ -7,9 +7,11 @@
 int main(){
   Player p("Alice Bob",23);
   char t=' ';
+  char crystal = 'C';
+  char cryo = 'c';
   Location Paris(t);
-  Crystal Test(t);
-  Cryo tie(t);
+  Crystal Test(crystal);
+  Cryo tie(cryo);
   Paris.draw();
   Test.draw();
   tie.draw();
