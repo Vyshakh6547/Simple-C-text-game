@@ -3,9 +3,11 @@
 #include "Location.h"
 #include "Crystal.h"
 #include "Cryo.h"
+#include "Game.h"
 
 int main(){
   Player p("Alice Bob",23);
+  /*
   char t=' ';
   char crystal = 'C';
   char cryo = 'c';
@@ -25,4 +27,8 @@ int main(){
   tie.SetTaken(true);
   Test.draw();
   tie.draw();
+  */
+  Game game;
+  game.playGame(4, 4, 0, 0);
+  return 0;
 }

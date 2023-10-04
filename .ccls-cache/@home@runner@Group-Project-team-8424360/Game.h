@@ -21,7 +21,9 @@ class Game {
     ~Game();
     Game();
     void setUpGame(int r, int c, int pr, int pc);
-    void playGame();
+    void move();
+    void drawGame();
+    void playGame(int r, int c, int pr, int pc);
 
       
 };
