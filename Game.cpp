@@ -119,7 +119,7 @@ void Game::playGame(int r, int c, int pr, int pc){
     cout<<"Press any key to continue...(press Q to quit)";
     cin.ignore();
     next = cin.get();
-    //system('cls');
+    system("clear");
     cout<<endl;
   }while(next!='Q');
     
