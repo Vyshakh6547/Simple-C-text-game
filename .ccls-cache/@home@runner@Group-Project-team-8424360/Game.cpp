@@ -4,8 +4,11 @@
 #include "Location.h"
 #include "Crystal.h"
 #include "Cryo.h"
+#include "Sphinx.h"
 #include "Player.h"
 #include "Game.h"
+#include <fstream>
+#include <sstream>
 using namespace std;
 
 //constructor: set all variables to 0 or null
@@ -31,35 +34,44 @@ Game::~Game(){
 set up the rows and column of the game map, set the initial positon(row, column) of the player
 then set every location of the map randomly to "empty", "crystal", or "cryo"  
 */
-void Game::setUpGame(int r, int c, int pr, int pc){
-  int ran;//random seed to determine the item at each location
+void Game::setUpGame(ifstream &Data){
+  int r, c;
+  Data >> r >> c;
+  cout << r << " " << c << endl;
+  //int ran;//random seed to determine the item at each location
   rows = r;
   cols = c;
-  playerCol = pc;
-  playerRow = pr;
+  Data.ignore();
+  playerCol = 0;
+  playerRow = 0;
   world = new Location** [rows];
   for (int i = 0; i < rows; i++) {
     world[i] = new Location* [cols];
   }
-
+  string readLine;
+  string readPos;
   for (int i = 0; i < rows; i++) {
+      getline(Data, readLine);
+      stringstream ss(readLine);
     for (int j = 0; j < cols; j++) {
-      //if world[i][j] is the origin of the player, set it as empty location(visited)
-      if(i == playerRow && j == playerCol){
-        world[i][j] = new Location(' ');
-        world[i][j]->visit(p);
-      }else{
-        ran = rand() % 3;//generate a random item for the location
-        if(ran == 0){
-          world[i][j] = new Location(' ');
-        }else if(ran == 1){
-          world[i][j] = new Crystal('C');
-        }else if(ran == 2){
-          world[i][j] = new Cryo('c');
-        }
+      getline(ss, readPos ,' ');
+      cout << "("<< i << "," << j << ")" << readPos << endl;
+      if(readPos=="o"){
+        world[i][j]= new Location(' ');
+      }
+      else if(readPos=="Crystal"){
+        world[i][j]= new Crystal('C');
+      }
+      else if(readPos=="Cryo"){
+        world[i][j]= new Cryo('c');
+      }
+      else if(readPos=="Sphinx"){
+        world[i][j]= new Sphinx('S');
       }
     }
   }
+
+  world[0][0]->visit(p);
   
 }
 /*
@@ -109,8 +121,8 @@ void Game::drawGame(){
   }
 }
 //the overall gameplay, the player will be prompted to explore the map again and again until the player wants to quit
-void Game::playGame(int r, int c, int pr, int pc){
-  this->setUpGame(r, c, pr, pc);
+void Game::playGame(ifstream &Data){
+  this->setUpGame(Data);
   char in;
   char next;
   do{

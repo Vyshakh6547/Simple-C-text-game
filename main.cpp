@@ -1,13 +1,32 @@
 #include <iostream>
+#include <stdlib.h>
 #include "Player.h"
 #include "Location.h"
 #include "Crystal.h"
+#include "Sphinx.h"
 #include "Cryo.h"
 #include "Game.h"
+#include <fstream>
+#include <sstream>
 
 int main(){
-  Player p("Alice Bob",23);
-  /*
+  int level;
+  ifstream Data;
+  cout<<"Choose the difficulty level(enter 1 for easy and 2 for hard): ";
+  cin>>level;
+  if(level == 1){
+    Data.open("Easy.txt", ios::in);
+  }
+
+  if(level == 2){
+    Data.open("Hard.txt", ios::in);
+  }
+  
+  if(level!=1&&level!=2){
+    cout << "Error! input not recognised. please input a number 1 or 2";
+  }
+  
+    /*
   char t=' ';
   char crystal = 'C';
   char cryo = 'c';
@@ -29,6 +48,7 @@ int main(){
   tie.draw();
   */
   Game game;
-  game.playGame(4, 4, 0, 0);
+  game.playGame(Data);
+  Data.close();
   return 0;
 }

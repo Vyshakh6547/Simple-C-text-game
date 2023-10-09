@@ -20,10 +20,10 @@ class Game {
   public:
     ~Game();
     Game();
-    void setUpGame(int r, int c, int pr, int pc);
+    void setUpGame(ifstream &Data);
     void move();
     void drawGame();
-    void playGame(int r, int c, int pr, int pc);
+    void playGame(ifstream &Data);
 
       
 };
