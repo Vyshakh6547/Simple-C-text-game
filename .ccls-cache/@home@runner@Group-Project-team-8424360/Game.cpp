@@ -1,4 +1,4 @@
-#include <iostream>
+ #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
 #include "Location.h"
@@ -30,6 +30,7 @@ Game::~Game(){
   }
 }
 
+
 /*
 set up the rows and column of the game map, set the initial positon(row, column) of the player
 then set every location of the map randomly to "empty", "crystal", or "cryo"  
@@ -37,13 +38,14 @@ then set every location of the map randomly to "empty", "crystal", or "cryo"
 void Game::setUpGame(ifstream &Data){
   int r, c;
   Data >> r >> c;
-  cout << r << " " << c << endl;
+  //cout << r << " " << c << endl;
   //int ran;//random seed to determine the item at each location
   rows = r;
   cols = c;
   Data.ignore();
   playerCol = 0;
   playerRow = 0;
+  int water = r*c;
   world = new Location** [rows];
   for (int i = 0; i < rows; i++) {
     world[i] = new Location* [cols];
@@ -55,7 +57,7 @@ void Game::setUpGame(ifstream &Data){
       stringstream ss(readLine);
     for (int j = 0; j < cols; j++) {
       getline(ss, readPos ,' ');
-      cout << "("<< i << "," << j << ")" << readPos << endl;
+      //cout << "("<< i << "," << j << ")" << readPos << endl;
       if(readPos=="o"){
         world[i][j]= new Location(' ');
       }
@@ -122,15 +124,36 @@ void Game::drawGame(){
 }
 //the overall gameplay, the player will be prompted to explore the map again and again until the player wants to quit
 void Game::playGame(ifstream &Data){
+  int countCrystal=0, countCryo=0, countSphinx=0;
   this->setUpGame(Data);
   char in;
   char next;
   do{
     this->drawGame();
     this->move();
+    if(world[playerRow][playerCol]->GetSymbol()=='C'){
+      countCrystal++;
+    }
+    if(world[playerRow][playerCol]->GetSymbol()=='c'){
+      countCryo++;
+    }
+    if(world[playerRow][playerCol]->GetSymbol()=='S'){
+      countSphinx++;
+    }
+    if(countCrystal>0 && countCryo>0){
+      cout<<"Victory!"<<endl;
+      break;
+    }
+    if(countSphinx>0){
+      cout << "You have died! better luck next time.";
+      break;
+    }
+
+    cout<< "You have found " <<countCrystal<<" crystals and "<< countCryo << " cryos so far"<< endl;
     cout<<"Press any key to continue...(press Q to quit)";
     cin.ignore();
     next = cin.get();
+    
     system("clear");
     cout<<endl;
   }while(next!='Q');

@@ -4,7 +4,7 @@
 #include "Location.h"
 #include "Crystal.h"
 #include "Sphinx.h"
-#include "Cryo.h"
+#include "Oasis.h"
 #include "Game.h"
 #include <fstream>
 #include <sstream>
@@ -12,6 +12,9 @@
 int main(){
   int level;
   ifstream Data;
+  cout<<"Game Instruction:"<<endl;
+  cout<<"As you open your eyes, you ."<<endl;
+  cout<<endl;
   cout<<"Choose the difficulty level(enter 1 for easy and 2 for hard): ";
   cin>>level;
   if(level == 1){
@@ -29,10 +32,10 @@ int main(){
     /*
   char t=' ';
   char crystal = 'C';
-  char cryo = 'c';
+  char Oasis = 'c';
   Location Paris(t);
   Crystal Test(crystal);
-  Cryo tie(cryo);
+  Oasis tie(Oasis);
   Paris.draw();
   Test.draw();
   tie.draw();

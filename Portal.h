@@ -1,13 +1,13 @@
-#ifndef CRYOH
-#define CRYOH
+#ifndef PORTALH
+#define PORTALH
 #include "Location.h"
 #include "Player.h"
 
-class Cryo : public Location{
+class Portal : public Location{
   private:
     bool taken;
   public:
-    Cryo(char s);
+    Portal(char s);
     void SetTaken(bool t);
     bool GetTaken();
     virtual int visit(Player &p);

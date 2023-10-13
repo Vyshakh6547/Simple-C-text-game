@@ -1,5 +1,13 @@
 {
   "files": {
+    "Cryo.cpp": [
+      {
+        "id": "8d2f4831-1cc4-4062-8b56-5f77c3bb564a",
+        "line": 3,
+        "version": 62,
+        "index": 39
+      }
+    ],
     "location/main.cpp": [
       {
         "id": "57252050-7f5c-42ef-a255-9bedd2709f8b",

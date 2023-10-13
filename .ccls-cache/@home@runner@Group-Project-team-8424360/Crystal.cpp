@@ -26,6 +26,7 @@ void Crystal::draw(){
   }
 }
 
+
 int Crystal::visit(Player &p){
   if(!visited){
     visited=true;

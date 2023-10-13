@@ -1,18 +1,18 @@
-#include "Cryo.h"
+#include "Oasis.h"
 #include "Player.h"
 
-Cryo::Cryo(char s): Location(s) //: Location(s) passes the parameter s to the base
+Oasis::Oasis(char s): Location(s) //: Location(s) passes the parameter s to the base
 {//class constructor (in this case, Location)
   taken = false; //initialize class specific attributes here
 }
 
-void Cryo::SetTaken(bool t){
+void Oasis::SetTaken(bool t){
   taken=t;
 }
-bool Cryo::GetTaken(){
+bool Oasis::GetTaken(){
   return taken;
 }
-void Cryo::draw(){
+void Oasis::draw(){
   if (visited == true && taken == false){
     cout << symbol;
   }
@@ -24,10 +24,10 @@ void Cryo::draw(){
   }
 }
 
-int Cryo::visit(Player &p){
+int Oasis::visit(Player &p){
   if(!visited){
     visited=true;
-    cout << "You found a magic cryo." << endl;
+    cout << "You found an Oasis." << endl;
   }
   return 1;
 }
