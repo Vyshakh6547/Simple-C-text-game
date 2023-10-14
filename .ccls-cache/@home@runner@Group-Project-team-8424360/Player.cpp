@@ -24,6 +24,6 @@ int Player::GetAge(){
 string Player::GetName(){
   return name;
 }
-void Player::PrintPlayerInfo(){
+void Player::print(){
   cout << "Player Name: " << name << " " << "Player Age: " << age << endl;
 }
