@@ -6,26 +6,26 @@
 
 class Game {
 
-  
-  private:
-    Location ***world;
-    Player p;
-    int rows;
-    int cols;
-    int playerRow;
-    int playerCol;
-  
-  
+private:
+  Location ***world;
+  Player p;
+  int rows;
+  int cols;
+  int playerRow;
+  int playerCol;
+  int water;
+  int Pr;
+  int Pc;
 
-  public:
-    ~Game();
-    Game();
-    void setUpGame(ifstream &Data);
-    void move();
-    void drawGame();
-    void playGame(ifstream &Data);
-
-      
+public:
+  ~Game();
+  Game();
+  void setUpGame(ifstream &Data);
+  void move();
+  void setWater(int &InitWater);
+  int getWater();
+  void drawGame();
+  void playGame(ifstream &Data);
 };
 
 #endif

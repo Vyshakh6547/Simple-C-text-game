@@ -1,39 +1,32 @@
 #include "Portal.h"
 #include "Player.h"
 
-Portal::Portal(char s): Location(s) //: Location(s) passes the parameter s to the base
-{//class constructor (in this case, Location)
-  taken = false; //initialize class specific attributes here
+Portal::Portal(char s)
+    : Location(s) //: Location(s) passes the parameter s to the base
+{                 // class constructor (in this case, Location)
+  taken = false;  // initialize class specific attributes here
 }
 
-void Portal::SetTaken(bool t){
-  taken=t;
-}
+void Portal::SetTaken(bool t) { taken = t; }
 
-bool Portal::GetTaken(){
-  return taken;
-}
+bool Portal::GetTaken() { return taken; }
 
-void Portal::draw(){
-  if (visited == true && taken == false){
+void Portal::draw() {
+  if (visited == true && taken == false) {
     cout << symbol;
-  }
-  else if (taken == true){
+  } else if (taken == true) {
     cout << "O";
-  }
-  else{
+  } else {
     cout << "X";
   }
 }
 
-
-int Portal::visit(Player &p){
-  if(!visited){
-    visited=true;
-    if(taken){
+int Portal::visit(Player &p) {
+  if (!visited) {
+    visited = true;
+    if (taken) {
       cout << "You found a Magic Portal." << endl;
-    }
-    else{
+    } else {
       cout << "You found a Massive Door." << endl;
     }
   }
