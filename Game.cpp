@@ -135,10 +135,12 @@ void Game::drawGame() {
 // the overall gameplay, the player will be prompted to explore the map again
 // and again until the player wants to quit
 void Game::playGame(ifstream &Data) {
-  int countCrystal = 0;
+  int countCrystal = 0, ansd = 0;
   this->setUpGame(Data);
   char in;
   char next;
+  int ran;
+  ran = rand();
   do {
     cout << "you have " << water << " water left" << endl;
     this->drawGame();
@@ -148,6 +150,73 @@ void Game::playGame(ifstream &Data) {
     }
     if (world[playerRow][playerCol]->GetSymbol() == 'W' && water < 30) {
       water += 10;
+    }
+    if (world[playerRow][playerCol]->GetSymbol() == 'S' && !world[playerRow][playerCol]->GetTaken()) {
+      cout << "There is a circular altar in front of the sphinx, with sand all "
+              "over , You believe that is where you stand to face the sphinx's "
+              "riddles. Keep in mind, sphinx is a dangerous entity, proceed "
+              "only if you are confident in solving the riddles. Would you "
+              "like to step up (y/n)."
+           << endl;
+      char altar;
+      cin >> altar;
+      if (altar == 'y') {
+        cout << "You walk up to the altar, and hear a voice speaking from "
+                "inside."
+             << endl;
+        string answer;
+        if (ran % 3 == 0) {
+          cout << "\"Never resting, never still; moving silently from hill to "
+                  "hill; it does not walk, run or trot; all is cool where it "
+                  "is not.\"";
+
+          cin >> answer;
+          if (answer == "Sun" || answer == "sun") {
+            cout << "Correct answer" << endl;
+            ansd++;
+            ran++;
+          } else {
+            cout << "Wrong answer" << endl;
+            cout << "The sphinx will spare your life, in exchange for a crystal"
+                 << endl;
+          }
+        }
+        if (ran % 3 == 1) {
+          cout << "\"What goes on four feet in the morning, two feet in "
+                  "midday, and three feet in the evening?\"";
+
+          cin >> answer;
+          if (answer == "Man" || answer == "man" || answer == "Human" ||
+              answer == "human") {
+            cout << "Correct answer" << endl;
+            ansd++;
+            ran++;
+          }
+        }
+        if (ran % 3 == 2) {
+          cout << "\" Round she is, yet flat as a board,Altar of the Lupine "
+                  "Lords,Jewel on black velvet, pearl in the sea,Unchanged but "
+                  "e’erchanging, eternally \"";
+          cin >> answer;
+          if (answer == "Moon" || answer == "moon") {
+            cout << "Correct answer" << endl;
+            ansd++;
+            ran++;
+          }
+        }
+        if (ansd == 3) {
+          cout << "\"Impressive, traveler,\" it intones. \"You have proven "
+                  "your intelligence and resourcefulness. May your path be "
+                  "guided by the light of knowledge.\" With these words, The "
+                  "sphinx disappears and leaves behind a Key and a Crystal on "
+                  "the altar."
+               << endl;
+          countCrystal++;
+          world[playerRow][playerCol]->SetTaken(true);
+        }
+      } else {
+        cout << "You walk away from the altar" << endl;
+      }
     }
     if (countCrystal > 3 && world[Pr][Pc]->GetTaken()) {
       cout << "Victory!" << endl;
