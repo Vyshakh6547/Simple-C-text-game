@@ -1,5 +1,5 @@
 10 10
-Oasis o o o o o o o o o
+o o o o o o o o o o
 o o o o o Crystal o o o o
 o o o o o o o o o o
 o o o Crystal o o Sphinx o o o

@@ -7,6 +7,10 @@ Sphinx::Sphinx(char s)
   taken = false;  // initialize class specific attributes here
 }
 
+void Sphinx::SetTaken(bool t) { taken = t;}
+
+bool Sphinx::GetTaken() { return taken; }
+
 void Sphinx::draw() {
   if (visited == true && taken == false) {
     cout << symbol;

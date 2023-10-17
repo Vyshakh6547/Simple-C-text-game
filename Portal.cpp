@@ -12,6 +12,7 @@ void Portal::SetTaken(bool t) { taken = t; }
 bool Portal::GetTaken() { return taken; }
 
 void Portal::draw() {
+  /*
   if (visited == true && taken == false) {
     cout << symbol;
   } else if (taken == true) {
@@ -19,16 +20,24 @@ void Portal::draw() {
   } else {
     cout << "X";
   }
+*/
+  if(!taken){
+    cout<<"X";
+  }else {
+    cout<<symbol;
+  }
 }
 
 int Portal::visit(Player &p) {
   if (!visited) {
     visited = true;
-    if (taken) {
-      cout << "You found a Magic Portal." << endl;
-    } else {
+    if (!taken) {
       cout << "You found a Massive Door." << endl;
     }
+  }
+
+  if(taken){
+    cout << "The door has been opened. You found a Magic Portal." << endl;
   }
   return 1;
 }

@@ -8,6 +8,8 @@ class Sphinx : public Location{
     bool taken;
   public:
     Sphinx(char s);
+    void SetTaken(bool t);
+    bool GetTaken();
     virtual int visit(Player &p);
     virtual void draw();
 };
