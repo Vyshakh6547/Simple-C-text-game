@@ -1,11 +1,11 @@
 10 10
 o o o o o o o o o o
-o o o o o Crystal o o o o
+o o Crystal o o Crystal o o o o
 o o o o o o o o o o
 o o o Crystal o o Sphinx o o o
 o o o o o o o Crystal o o
 o o Oasis o o o o o o o
 o o o o o Crystal o o o o
 o o o o o o Portal o o o
-o Crystal o o o o o o o o
-o o o o o o o o o o
+o Crystal o o o o o Oasis o o
+o o o o o o o Crystal o o

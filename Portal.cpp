@@ -32,12 +32,12 @@ int Portal::visit(Player &p) {
   if (!visited) {
     visited = true;
     if (!taken) {
-      cout << "You found a Massive Door." << endl;
+      cout << "You found a Massive Door with a sphinx's heiroglyphs on it, perhaps finding it would help open the door." << endl;
     }
   }
 
   if(taken){
-    cout << "The door has been opened. You found a Magic Portal." << endl;
+    cout << "The door has been opened, the key disappears into dust. You found a Magic Portal." << endl;
   }
   return 1;
 }

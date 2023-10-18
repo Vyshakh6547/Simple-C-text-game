@@ -11,10 +11,11 @@ private:
   Player p;
   int rows;
   int cols;
-  int playerRow;
+  int playerRow; //current player location row and column
   int playerCol;
-  int water;
-  int Pr;
+  int water; // current amount of water
+  int Heat; // difficulty
+  int Pr; // Portal location row and column
   int Pc;
 
 public:
@@ -23,7 +24,9 @@ public:
   void setUpGame(ifstream &Data);
   void move();
   void setWater(int &InitWater);
+  void setHeat(int &heat);
   int getWater();
+  int getHeat();
   void drawGame();
   void playGame(ifstream &Data);
 };

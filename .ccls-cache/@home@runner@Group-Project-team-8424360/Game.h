@@ -14,6 +14,7 @@ private:
   int playerRow;
   int playerCol;
   int water;
+  int Heat; // difficulty
   int Pr;
   int Pc;
 
@@ -23,7 +24,9 @@ public:
   void setUpGame(ifstream &Data);
   void move();
   void setWater(int &InitWater);
+  void setHeat(int &heat);
   int getWater();
+  int getHeat();
   void drawGame();
   void playGame(ifstream &Data);
 };

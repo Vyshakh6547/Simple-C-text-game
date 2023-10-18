@@ -12,7 +12,8 @@
 int main() {
   int level;
   ifstream Data;
-  int InitWater;
+  int InitWater; // initial amount of water in Player's baggage.
+  int heat;
   cout << "Game Instruction:" << endl;
   cout << "As you open your eyes, you find yourself in a seemingly endless "
           "desert. You walk endlessly and as you are almost losing "
@@ -30,17 +31,20 @@ int main() {
           "Scorching Earth): ";
   cin >> level;
   Data.open("Data.txt");
+  Game game;
   if (level == 1) {
-    InitWater = 30;
+    InitWater = 80;
+    heat = 1;
   }
 
   if (level == 2) {
-    InitWater = 20;
+    InitWater = 100;
+    heat = 2;
   }
   if (level != 1 && level != 2) {
     cout << "Error! input not recognised. please input a number 1 or 2";
   }
-  Game game;
+  game.setHeat(heat);
   game.setWater(InitWater);
   game.playGame(Data);
   Data.close();
